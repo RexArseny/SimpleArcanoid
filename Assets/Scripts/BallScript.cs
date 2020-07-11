@@ -14,9 +14,8 @@ public class BallScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && active == false)
+        if (Input.GetKeyDown(KeyCode.Space) && active == false)
         {
-            Destroy(GameObject.FindGameObjectWithTag("Text")); //Убрать текст
             GetComponent<Rigidbody2D>().velocity = Vector2.up * ballForce; //Применить силу к шару
             active = true; //Защитать от дополнительных нажатий
         }
