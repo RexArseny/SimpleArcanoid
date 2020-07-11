@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BlockScript : MonoBehaviour
 {
@@ -13,5 +14,18 @@ public class BlockScript : MonoBehaviour
         Destroy(gameObject);
         Score++;
         Text.GetComponent<Text>().text = "Счет: " + Score.ToString();
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) //Перезагрузка уровня
+        {
+            SceneManager.LoadScene("MainGame");
+            Score = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) //Выход в меню
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
